@@ -1,5 +1,5 @@
 ###########################################################################################
-# Quality assessment of DNA methylation data using Illumina Beadchip Arrays: HL-Scores
+# Quality assessment of DNA methylation data from Illumina Beadchip Arrays: HL-Scores
 ###########################################################################################
 # last update, 13.05.2022
 
@@ -48,7 +48,7 @@ hl.score <- function(input){
     HLvalue[[sample]] <- HLscore
   }
   
-  # Scores als Dataframes speichern (Cave: Erste zwei spalten waren TargetID und Type --> lˆschen)
+  # Scores als Dataframes speichern (Cave: Erste zwei spalten waren TargetID und Type --> l√∂schen)
   HLhigh          <- t(as.data.frame(HLhigh))
   HLhigh          <- as.data.frame(HLhigh[3:ncol(data_HL)])
   HLlow           <- t(as.data.frame(HLlow))
