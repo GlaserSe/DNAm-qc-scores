@@ -1,5 +1,5 @@
 ###########################################################################################
-# Quality assessment of DNA methylation data using Illumina Beadchip Arrays: DB-Score
+# Quality assessment of DNA methylation data from Illumina Beadchip Arrays: DB-Score
 ###########################################################################################
 # last update, 13.05.2022
 
