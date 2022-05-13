@@ -1,5 +1,5 @@
 ###########################################################################################
-# Quality assessment of DNA methylation data using Illumina Beadchip Arrays: CNV-Score
+# Quality assessment of DNA methylation data from Illumina Beadchip Arrays: CNV-Score
 ###########################################################################################
 # last update, 13.05.2022
 
@@ -60,12 +60,12 @@ cnv.score <- function(input, array_type){
     segmentlist   <- segment[,c(2,5,9)]                                       
     segmentlist   <- segmentlist[order(segmentlist$chrom),]
     
-    # Vektor generieren mit der entsprechende Anzahl der Seg.Median-Werte für die Bins in jedem Segment den Bins 
-    # zugeordnet werden können 
+    # Vektor generieren mit der entsprechende Anzahl der Seg.Median-Werte fÃ¼r die Bins in jedem Segment den Bins 
+    # zugeordnet werden kÃ¶nnen 
     anzahl_bins         <- as.vector(segmentlist$num.mark)    # Vektor mit Anzahl der Bins in den einzelnen Segmenten
     segmedian           <- as.vector(segmentlist$seg.median)  # Vektor mit Segment-Mediane
-    segmedian_all_bins  <- list()                             # Leere Liste, in der die Mediane hinzugefügt werden
-    d                   <- 1                                  # Ermöglicht hinzufügen der Mediane (verhindert ersetzen)
+    segmedian_all_bins  <- list()                             # Leere Liste, in der die Mediane hinzugefÃ¼gt werden
+    d                   <- 1                                  # ErmÃ¶glicht hinzufÃ¼gen der Mediane (verhindert ersetzen)
     
     for(segment in 1:length(anzahl_bins)){
       
