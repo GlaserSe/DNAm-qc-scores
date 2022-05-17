@@ -23,3 +23,14 @@ In order to differentiate between those cases which technical failed from those 
 
 ### Example
 cnv.score(input = Mset, array_type = "450k")
+
+
+
+## HL-Scores
+As a further indication for a possible meaningful biological background the Heatmap-Lane-Scores (HL-Scores) were established. Therefore, CpG loci with a constant DNA methylation pattern over various tissues, cancers and preparations methods for samples were identified. This CpG loci in turn were further differentiated in stable hypermethylated and hypomethylated loci (450K: 279 hyper- and 313 hypomethylated, EPIC: 249 hyper- and 299 hypomethylated). Based on this stable hyper- or hypomethylated loci three HL-Scores were implemented: HL-Score high, HL-Score low and HL-Score difference (absolute difference between HL-Score high and low).
+
+> hl.score(input)
+>-input: Name of the table with the TargetID and beta values (samples are listed per column)
+
+### Example
+hl.score(input=data)
