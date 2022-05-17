@@ -10,7 +10,7 @@
 # Folder "DB_Score" will be generated including a table comprising DB-Scores of all samples
 
 ## Function arguments
-# input: Name of the table with the TargetID and beta values (samples are listet per column)
+# input: Name of the table with the TargetID and beta values (samples are listed per column)
 
 db.score <- function(input){
   
