@@ -2,15 +2,12 @@
 
 Here we present three new scores for evaluating the quality of DNA methylation raw data from Illumina-based arrays. We suggest following cut-offs for the QC-Scores, which are based on experience. 
 
-| QC-Score 	| Cut-off &nbsp;      	| Interpretation |
+| QC-Score 	| Cut-off &nbsp; 	| Interpretation |
 |:---------	|:------------------	|:---------------------|
 |DB-Score 	| <1 		| A DB-Score above 1 indicates a deviation of the bimodal distribution of beta values and thus a technical problem or a possible meaningful biological background. |
 | CNV-Score	| <0.25 		| A CNV-Score above 0.25 is an indication of a technical error or a problem with the DNA itself. |
 | HL-Score high and low | <20% | Describe the percentage of deviant CpGs within the stable methylated loci and indicates a technical error or a problem with the DNA itself. |
 | HL-Score difference | <20% | Describe the differences between the HL-Scores high and low. A high difference is a measurement of a possible meaningful background. |
-
-
-
 
 ## DB-Score
 In order to identify samples with a doubtful quality we mathematically summarized the overall DNA methylation distribution in the so called Distribution-Score. Therefore, the number of CpGs with beta values between 0.3 and 0.7 is divided by the number of CpGs with beta values smaller or equal 0.3 and higher or equal 0.7. The DB-Score can be calculated using the db.score() function.
