@@ -32,7 +32,7 @@ As a further indication for a possible meaningful biological background the Heat
 
 > hl.score(input)
 > 
->-input: Name of the table including the one column with the TargetID followed by the beta values (samples are listed per column)
+>-input: Name of the table including one column with the TargetID followed by the beta values (samples are listed per column)
 >
 ### Example
 hl.score(input = data)
