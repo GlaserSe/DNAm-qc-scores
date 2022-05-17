@@ -14,6 +14,10 @@ Here we present three new quality control scores (QC-Scores) for evaluating the 
 ## DB-Score
 In order to identify samples with a doubtful quality we mathematically summarized the overall DNA methylation distribution in the so called Distribution-Score. Therefore, the number of CpGs with beta values between 0.3 and 0.7 is divided by the number of CpGs with beta values smaller or equal 0.3 and higher or equal 0.7. The DB-Score can be calculated using the db.score() function.
 
+![Examples Histograms and DB-Score](DB.Score/Figure_DB-Score_Histogram.png)
+**Figure Histograms:** Outstanding examples of samples with good (left), doubtful (middle) and bad (right) quality based on their DB-Scores.
+
+
 >db.score(input)
 >- input: Name of the table including one column with the TargetID followed by the beta values (samples are listed per column)
 >
