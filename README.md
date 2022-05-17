@@ -19,7 +19,7 @@ To differentiate between those cases which technical failed from those with poss
 
 
 ![Outstanding examples of samples with good (A) and bad (B) CNV-Scores](CNV.Score/Figure_CNV-Plots.png)
-Outstanding examples of samples with good (A) and bad (B) CNV-Scores.
+**Figure CNN-Plots:** Outstanding examples of samples with good (A) and bad (B) CNV-Scores.
 
 >cnv.score(input, array_type)
 >
