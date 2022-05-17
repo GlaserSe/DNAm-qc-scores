@@ -5,13 +5,9 @@ Here we present three new scores for evaluating the quality of DNA methylation r
 | QC-Score | Cut-off       | Interpretation |
 |:---------|:------------------|:---------------------|
 |DB-Score | <1 | A DB-Score above 1 indicates a deviation of the bimodal distribution of beta values and thus a technical problem or a possible meaningful biological background. |
-| CNV-Score| < 0.25 | A CNV-Score above 0.25 is an indication of a technical error or a problem with the DNA itself. |
+| CNV-Score| <0.25 | A CNV-Score above 0.25 is an indication of a technical error or a problem with the DNA itself. |
 | HL-Score high and low | <20% | Describe the percentage of deviant CpGs within the stable methylated loci and indicates a technical error or a problem with the DNA itself. |
 | HL-Score difference | <20% | Describe the differences between the HL-Scores high and low. A high difference is a measurement of a possible meaningful background. |
-
-
-
-
 
 
 ## DB-Score
