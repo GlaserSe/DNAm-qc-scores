@@ -19,8 +19,8 @@ To differentiate between those cases which technical failed from those with poss
 
 >cnv.score(input, array_type)
 >
->-input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi package)
->-array_type: Choose "EPIC" or "450k"
+>- input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi package)
+>- array_type: Choose "EPIC" or "450k"
 
 ### Example
 cnv.score(input = Mset, array_type = "450k")
@@ -32,7 +32,7 @@ As a further indication for a possible meaningful biological background the Heat
 
 > hl.score(input)
 > 
->-input: Name of the table including one column with the TargetID followed by the beta values (samples are listed per column)
+>- input: Name of the table including one column with the TargetID followed by the beta values (samples are listed per column)
 >
 ### Example
 hl.score(input = data)
