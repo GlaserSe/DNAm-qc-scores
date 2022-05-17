@@ -9,5 +9,5 @@ In order to identify samples with a doubtful quality we mathematically summarize
 >db.score(input)
 >- input: Name of the table with the TargetID and beta values (samples are listed per column)
 >
-# Example
+### Example
 db.score(input = data)
