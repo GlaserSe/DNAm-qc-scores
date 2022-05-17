@@ -10,7 +10,7 @@
 # Folder "HL_Score" will be generated including a table comprising HL-Scores of all samples
 
 ## Function arguments
-# input: Name of the table with the TargetID and beta values (samples are listet per column)
+# input: Name of the table with the TargetID and beta values (samples are listed per column)
 
 hl.score <- function(input){
   
