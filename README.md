@@ -15,10 +15,12 @@ db.score(input = data)
 
 
 ## CNV-Score
-In order to differentiate between those cases which technical failed from those with possible meaningful biological effects we implemented another quality score named Copy Number Variation Score (CNV-Score). As basis for the calculation of the CNV-Score the R-package Conumee is used, which enables copy number variation calling based on DNA methylation data. Thereby, CpGs within a predefined range are summarized in bins (represented as points in the plot) and used to visualize gains and losses throughout the whole genome. Within these plots the distribution of the bins over the y-scale can be used as an indicator for a technical failure and therefore differentiate between those cases with a possible meaningful biological background
+In order to differentiate between those cases which technical failed from those with possible meaningful biological effects we implemented another quality score named Copy Number Variation Score (CNV-Score). As basis for the calculation of the CNV-Score the R-package Conumee is used, which enables copy number variation calling based on DNA methylation data. Thereby, CpGs within a predefined range are summarized in bins (represented as points in the plot) and used to visualize gains and losses throughout the whole genome. Within these plots the distribution of the bins over the y-scale can be used as an indicator for a technical failure and therefore differentiate between those cases with a possible meaningful biological background.
 
 >cnv.score(input = Mset, array_type = "450k")
+>
 >-input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi >package)
+>
 >-array_type: Choose "EPIC" or "450k"
 
 ### Example
