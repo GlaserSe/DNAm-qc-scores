@@ -19,7 +19,7 @@ In order to differentiate between those cases which technical failed from those 
 
 >cnv.score(input = Mset, array_type = "450k")
 >
->-input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi >package)
+>-input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi package)
 >-array_type: Choose "EPIC" or "450k"
 
 ### Example
