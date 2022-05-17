@@ -2,7 +2,7 @@
 
 Here we present three new scores for evaluating the quality of DNA methylation raw data from Illumina-based arrays. We suggest following cut-offs for the QC-Scores, which are based on experience. 
 
-| QC-Score &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Cut-off &nbsp; &nbsp; | Interpretation |
+| QC-Score | Cut-off &nbsp; | Interpretation |
 |:---------	|:------------------	|:---------------------|
 |DB-Score 	| <1 		| A DB-Score above 1 indicates a deviation of the bimodal distribution of beta values and thus a technical problem or a possible meaningful biological background. |
 | CNV-Score	| <0.25 		| A CNV-Score above 0.25 is an indication of a technical error or a problem with the DNA itself. |
