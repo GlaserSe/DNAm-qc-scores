@@ -1,6 +1,6 @@
 # DNAm-qc-scores
 
-Here we present three new scores for evaluating the quality of DNA methylation raw data from Illumina-based arrays. 
+Here we present three new scores for evaluating the quality of DNA methylation raw data from Illumina-based arrays. We suggest following cut-offs for the QC-Scores, which are based on experience. 
 
 
 ## DB-Score
