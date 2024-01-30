@@ -33,25 +33,25 @@ To differentiate between those cases which technical failed from those with poss
 ![Outstanding examples of samples with good (A) and bad (B) CNV-Scores](CNV.Score/Figure_CNV-Plots.png)
 **Figure CNV-Plots:** Outstanding examples of samples with good (A) and bad (B) BIN-Scores.
 
->cnv.score(input, array_type)
+>bin.score(input, array_type)
 >
 >- input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi package)
 >- array_type: Choose "EPIC" or "450k"
 
 ### Example
-cnv.score(input = Mset, array_type = "450k")
+bin.score(input = Mset, array_type = "450k")
 
 
 ## CM-Scores
 As a further indication for a possible meaningful biological background, three scores were conducted based on highly consistent DNA methylation levels at specific CpGs (CM-Scores). Therefore, CpG loci with a constant DNA methylation pattern over diverse tissues, various cancers, benign samples, and distinct sample preparation methods were identified. These stable CpG loci were further categorized into highly methylated CpGs, featuring an average beta value exceeding 0.9 (450k: 279, EPIC: 249), and lowly methylated CpGs, with an average beta value falling below 0.1 (450k: 313, EPIC: 299). On the basis of the stable loci we calculated three scores: "CM-Score low" based on the lowly methylated stable CpGs; "CM-Score high" based on the highly methylated stable CpGs; and "CM-Score difference" representing the absolute difference between CM-Score high and low. All three scores are calculated using the hl.score() function. A list including the stable loci is needed for the calculation and provided in the corresponding folder. 
 
-![Examples CM-Scores](HL.Scores/Figure_HL-Score.png)
+![Examples CM-Scores](CM.Scores/Figure_CM-Score.png)
 
 **Figure Heatmap-Lanes:** Outstanding examples of samples with good and bad HL-Scores high/low and a high HL-Score difference.
 
-> hl.score(input)
+> cm.score(input)
 > 
 >- input: Name of the table including one column with the TargetID followed by the beta values (samples are listed per column)
 >
 ### Example
-hl.score(input = data)
+cm.score(input = data)
