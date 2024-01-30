@@ -30,7 +30,7 @@ db.score(input = data)
 To differentiate between those cases which technical failed from those with possible meaningful biological effects we implemented another quality score named bin distance score (BIN-Score). As basis for the calculation of the BIN-Score the R-package conumee is used, which enables copy number variation calling based on DNA methylation data. Thereby, the genome is segmented into fragments termed bins, each delineated by a specified minimum size and a requisite minimum number of CpGs. These bins, represented as points in the plot, serve to visually capture gains and deletions across the entire genome, shifting the segment line to the positive (gain) or negative (loss) along the y-axis. It is pertinent to note that the BIN-Score does not solely account for samples from malignant tissue, where CNVs are predominantly expected. Instead, the calculation relies on the distribution span of the bins along the segment line and the y-scale, rather than the CNVs per se. Consequently, substantial deviations of the points from their respective segments are indicative of technical failures, potentially induced by suboptimal DNA quality. The BIN-Score is calculated using the cnv.score() function. Tables including the ranges of the bins for EPIC and 450k are needed for calculation and are provided in the corresponding folder.
 
 
-![Outstanding examples of samples with good (A) and bad (B) CNV-Scores](CNV.Score/Figure_CNV-Plots.png)
+![Outstanding examples of samples with good (A) and bad (B) CNV-Scores](BIN.Score/Figure_CNV-Plots.png)
 **Figure CNV-Plots:** Outstanding examples of samples with good (A) and bad (B) BIN-Scores.
 
 >bin.score(input, array_type)
