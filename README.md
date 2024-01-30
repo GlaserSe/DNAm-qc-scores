@@ -1,14 +1,14 @@
 # DNAm-qc-scores
 
-Here, we present three new quality control scores (QC-Scores) for evaluating the quality of DNA methylation raw data from Illumina-based arrays.  We suggest following cut-offs for the QC-Scores, which are based on experience.  
+Here, we present three quality control scores (QC-Scores) for evaluating the quality of DNA methylation raw data from Illumina-based BeadChip arrays.  We suggest following cut-offs for the QC-Scores, which represent no biologically defined thresholds but are rather suggestions based on our experience.  
 
 
 | QC-Score |     Cut-off          | Interpretation |
 |:---------	|:------------------	|:---------------------|
-|DB-Score 	| <1 		| A DB-Score above 1 indicates a deviation of the bimodal distribution of beta values and thus a technical problem or a possible meaningful biological background. |
-| CNV-Score	| < 0.25 		| A CNV-Score above 0.25 is an indication of a technical error or a problem with the DNA itself. |
-| HL-Score high and low | < 20% | Describe the percentage of deviant CpGs within the stable methylated loci and indicates a technical error or a problem with the DNA itself. |
-| HL-Score difference | < 20% | Describe the differences between the HL-Scores high and low. A high difference is a measurement of a possible meaningful background. |
+| DB-Score 	| <1 		| A DB-Score above 1 indicates a deviation of the bimodal distribution of beta values and thus a technical problem or a possible biological background. |
+| BIN-Score	| < 0.25 		| A BIN-Score above 0.25 is an indication of a technical error or a problem with the DNA itself. |
+| CM-Score high and low | < 20% | Describe the percentage of deviant CpGs within the stable methylated loci and indicates a technical error or a problem with the DNA itself. |
+| CM-Score difference | < 20% | Describes the differences between the HL-Scores high and low. A high difference is a measurement of a possible meaningful background. |
 
 
 ## DB-Score
@@ -26,12 +26,12 @@ db.score(input = data)
 
 
 
-## CNV-Score
-To differentiate between those cases which technical failed from those with possible meaningful biological effects we implemented another quality score named Copy Number Variation Score (CNV-Score). As basis for the calculation of the CNV-Score the R-package conumee is used, which enables copy number variation calling based on DNA methylation data. Thereby, CpGs within a predefined range are summarized in bins (represented as points in the plot) and used to visualize gains and losses throughout the whole genome. Within these plots the distribution of the bins over the y-scale can be used as an indicator for a technical failure and therefore differentiate between those cases with a possible meaningful biological background. The CNV-Score is calculated using the cnv.score() function. Tables including the ranges of the bins for EPIC and 450k are needed for calculation and are provided in the corresponding folder.
+## BIN-Score
+To differentiate between those cases which technical failed from those with possible meaningful biological effects we implemented another quality score named bin distance score (BIN-Score). As basis for the calculation of the BIN-Score the R-package conumee is used, which enables copy number variation calling based on DNA methylation data. Thereby, the genome is segmented into fragments termed bins, each delineated by a specified minimum size and a requisite minimum number of CpGs. These bins, represented as points in the plot, serve to visually capture gains and deletions across the entire genome, shifting the segment line to the positive (gain) or negative (loss) along the y-axis. It is pertinent to note that the BIN-Score does not solely account for samples from malignant tissue, where CNVs are predominantly expected. Instead, the calculation relies on the distribution span of the bins along the segment line and the y-scale, rather than the CNVs per se. Consequently, substantial deviations of the points from their respective segments are indicative of technical failures, potentially induced by suboptimal DNA quality. The BIN-Score is calculated using the cnv.score() function. Tables including the ranges of the bins for EPIC and 450k are needed for calculation and are provided in the corresponding folder.
 
 
 ![Outstanding examples of samples with good (A) and bad (B) CNV-Scores](CNV.Score/Figure_CNV-Plots.png)
-**Figure CNV-Plots:** Outstanding examples of samples with good (A) and bad (B) CNV-Scores.
+**Figure CNV-Plots:** Outstanding examples of samples with good (A) and bad (B) BIN-Scores.
 
 >cnv.score(input, array_type)
 >
@@ -42,10 +42,10 @@ To differentiate between those cases which technical failed from those with poss
 cnv.score(input = Mset, array_type = "450k")
 
 
-## HL-Scores
-As a further indication for a possible meaningful biological background the Heatmap-Lane-Scores (HL-Scores) were established. Therefore, CpG loci with a constant DNA methylation pattern over various tissues, cancers and preparations methods for samples were identified. This CpG loci in turn were further differentiated in stable hypermethylated and hypomethylated loci (450K: 279 hyper- and 313 hypomethylated, EPIC: 249 hyper- and 299 hypomethylated). Based on this stable hyper- or hypomethylated loci three HL-Scores were implemented: HL-Score high, HL-Score low and HL-Score difference (absolute difference between HL-Score high and low). All three scores are calculated using the hl.score() function. A list including the stable loci is needed for the calculation and provided in the corresponding folder. 
+## CM-Scores
+As a further indication for a possible meaningful biological background, three scores were conducted based on highly consistent DNA methylation levels at specific CpGs (CM-Scores). Therefore, CpG loci with a constant DNA methylation pattern over diverse tissues, various cancers, benign samples, and distinct sample preparation methods were identified. These stable CpG loci were further categorized into highly methylated CpGs, featuring an average beta value exceeding 0.9 (450k: 279, EPIC: 249), and lowly methylated CpGs, with an average beta value falling below 0.1 (450k: 313, EPIC: 299). On the basis of the stable loci we calculated three scores: "CM-Score low" based on the lowly methylated stable CpGs; "CM-Score high" based on the highly methylated stable CpGs; and "CM-Score difference" representing the absolute difference between CM-Score high and low. All three scores are calculated using the hl.score() function. A list including the stable loci is needed for the calculation and provided in the corresponding folder. 
 
-![Examples Heatmap-Lane Score](HL.Scores/Figure_HL-Score.png)
+![Examples CM-Scores](HL.Scores/Figure_HL-Score.png)
 
 **Figure Heatmap-Lanes:** Outstanding examples of samples with good and bad HL-Scores high/low and a high HL-Score difference.
 
