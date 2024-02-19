@@ -10,7 +10,7 @@
 # Folder "BIN_Score" will be generated including a table comprising BIN-Scores of all samples
 
 ## Function arguments
-# input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi package)
+# input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi package). Reference samples must have "Control" in their name.
 # array_type: Choose "EPIC" or "450k"
 
 
