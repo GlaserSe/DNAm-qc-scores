@@ -60,12 +60,11 @@ bin.score <- function(input, array_type){
     segmentlist   <- segment[,c(2,5,9)]                                       
     segmentlist   <- segmentlist[order(segmentlist$chrom),]
     
-    # Vektor generieren mit der entsprechende Anzahl der Seg.Median-Werte f?r die Bins in jedem Segment den Bins 
-    # zugeordnet werden k?nnen 
-    anzahl_bins         <- as.vector(segmentlist$num.mark)    # Vektor mit Anzahl der Bins in den einzelnen Segmenten
-    segmedian           <- as.vector(segmentlist$seg.median)  # Vektor mit Segment-Mediane
-    segmedian_all_bins  <- list()                             # Leere Liste, in der die Mediane hinzugef?gt werden
-    d                   <- 1                                  # Erm?glicht hinzuf?gen der Mediane (verhindert ersetzen)
+    # Generation of a vector including the corresponding number of segment median values for the bins within each segment
+    anzahl_bins         <- as.vector(segmentlist$num.mark)    
+    segmedian           <- as.vector(segmentlist$seg.median)  
+    segmedian_all_bins  <- list()                             
+    d                   <- 1                                  
     
     for(segment in 1:length(anzahl_bins)){
       
@@ -76,27 +75,27 @@ bin.score <- function(input, array_type){
       }
     }
     
-    # Verbinden der Probe-Binliste mit Mediane der Segmente
+    # Combine bin-list with median values of segments
     segmedian_all_bins            <- as.data.frame(segmedian_all_bins)
     segmedian_all_bins            <- t(segmedian_all_bins)
     bin_median                    <- cbind(bin, segmedian_all_bins) 
     
-    # Differenz der Bins zur blauen Segment-Linie berechnen
+    # Calculation difference of bins to segment line
     bin_median$diff     <-  bin_median$`bin[, 5]` - bin_median$segmedian_all_bins
     results_CNV             <- cbind(results_CNV, bin_median$diff)
     
   }
   
-  # Den Spalten die Proben-Namen zuweisen
+  # Adapt column names
   sample_names          <- as.vector(targets$Sample_Name)
   colnames(results_CNV) <- c("Bin positions", "Start", "End", "Width", sample_names)           
   
-  # CNV-Score berechnen (Median)
+  # Calculation BIN-Score
   data        <- results_CNV[,5:ncol(results_CNV)]
   data_abs    <- abs(data)
   data_median <- apply(data_abs, 2, FUN=median, na.rm=TRUE)
   
-  # Tabelle mit Proben + CNV-Score generieren
+  # Generation table including samples and corresponding BIN-Scores
   CNV                   <- as.data.frame(data_median)
   CNVscore              <- cbind(sample_names, CNV)
   colnames(CNVscore)    <- c("Sample", "BIN-Score")
