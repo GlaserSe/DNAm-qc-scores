@@ -35,7 +35,7 @@ To differentiate between those cases which technical failed from those with poss
 
 >bin.score(input, array_type)
 >
->- input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi package)
+>- input: A Mset containing methylated and unmethylated signals (preferably generated with the minfi package). Reference samples must have "Control" in their name.
 >- array_type: Choose "EPIC" or "450k"
 
 ### Example
