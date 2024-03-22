@@ -47,7 +47,7 @@ As a further indication for a possible meaningful biological background, three s
 
 ![Examples CM-Scores](CM.Scores/Figure_CM-Score.png)
 
-**Figure Heatmap-Lanes:** Outstanding examples of samples with good and bad HL-Scores high/low and a high HL-Score difference.
+**Figure Heatmap-Lanes:** Stable loci across various samples (n=465). CpGs are listed per row, samples are listed per column.
 
 > cm.score(input)
 > 
