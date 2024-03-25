@@ -1,7 +1,7 @@
 ###########################################################################################
 # Quality assessment of DNA methylation data using Illumina Beadchip Arrays: BIN-Score
 ###########################################################################################
-# last update, 30.01.2024
+# last update, 25.03.2024
 
 
 ### Description of the function bin.score()
@@ -19,6 +19,8 @@ bin.score <- function(input, array_type){
   # Installing and loading required packages
   if (!requireNamespace("conumee")) install.packages("conumee")
   library(conumee)
+  if (!requireNamespace("data.table")) install.packages("data.table")
+  library(data.table)
   
   # Create folder for results
   dir.create("BIN_Score")
@@ -37,8 +39,8 @@ bin.score <- function(input, array_type){
   tumor.data    <- CNV.load(input)
   control.data  <- grep("Control", names(tumor.data))
   
-  Mset <- mapToGenome(input)
-  anno@probes<-subsetByOverlaps(anno@probes, granges(Mset))
+  Mset        <- mapToGenome(input)
+  anno@probes <- subsetByOverlaps(anno@probes, granges(Mset))
   
   # Calculate the CNV-Score for each sample
   for(i in 1:ncol(tumor.data@intensity)) {
@@ -87,7 +89,7 @@ bin.score <- function(input, array_type){
   }
   
   # Adapt column names
-  sample_names          <- as.vector(targets$Sample_Name)
+  sample_names          <- as.vector(colnames(input))
   colnames(results_CNV) <- c("Bin positions", "Start", "End", "Width", sample_names)           
   
   # Calculation BIN-Score
@@ -99,7 +101,7 @@ bin.score <- function(input, array_type){
   CNV                   <- as.data.frame(data_median)
   CNVscore              <- cbind(sample_names, CNV)
   colnames(CNVscore)    <- c("Sample", "BIN-Score")
-  write.xlsx(CNVscore, "./BIN_Score/BIN Score.xlsx", colNames = T, rowNames=F)  
+  write.table(CNVscore, "./BIN_Score/BIN Score.csv", row.names = F, sep = ",")
 }
 
 
