@@ -1,7 +1,7 @@
 ###########################################################################################
 # Quality assessment of DNA methylation data using Illumina Beadchip Arrays: CM-Scores
 ###########################################################################################
-# last update, 30.01.2024
+# last update, 25.03.2024
 
 
 ### Description of the function cm.score()
@@ -10,7 +10,7 @@
 # Folder "CM_Score" will be generated including a table comprising CM-Scores of all samples
 
 ## Function arguments
-# input: Name of the table with the TargetID and beta values (samples are listed per column)
+# input: Name of the table with the TargetID (first column) and beta values (samples are listed per column)
 
 cm.score <- function(input){
   
