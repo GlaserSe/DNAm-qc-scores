@@ -1,7 +1,7 @@
 ###########################################################################################
 # Quality assessment of DNA methylation data using Illumina Beadchip Arrays: DB-Score
 ###########################################################################################
-# last update, 13.05.2022
+# last update, 25.03.2024
 
 
 ### Description of the function db.score()
@@ -10,12 +10,9 @@
 # Folder "DB_Score" will be generated including a table comprising DB-Scores of all samples
 
 ## Function arguments
-# input: Name of the table with the TargetID and beta values (samples are listet per column)
+# input: Name of the table with the TargetID (first column) and beta values (samples are listed per column)
 
 db.score <- function(input){
-  
-  # Installing and loading required packages
-  if (!requireNamespace("openxlsx")) install.packages("openxlsx")
   
   # Create folder for results
   dir.create("DB_Score")
@@ -49,7 +46,7 @@ db.score <- function(input){
   QC_table            <- as.data.frame(colnames(data_DBScore))                                                                 
   QC_table            <- cbind(QC_table, hypo_list, mid_list, hyper_list, DB)
   colnames(QC_table)  <- c("Sample", "< 0.3", "mid", "> 0.7", "DB-Score")
-  write.xlsx(QC_table, "./DB_Score/DBScore.xlsx", colNames = T, rowNames=F) 
+  write.table(QC_table, "./DB_Score/DBScore.csv", row.names = F, sep = ",") 
 }
 
 
